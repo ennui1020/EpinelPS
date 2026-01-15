@@ -32,7 +32,7 @@ namespace EpinelPS
                 Logging.WriteLine("Register handlers");
                 LobbyHandler.Init();
 
-                Logging.WriteLine("Starting ASP.NET core on port 443");
+                Logging.WriteLine("Starting ASP.NET core on port 5001");
                 new Thread(() =>
                 {
                     WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -47,7 +47,7 @@ namespace EpinelPS
 
                     builder.WebHost.ConfigureKestrel(serverOptions =>
                     {
-                        serverOptions.Listen(IPAddress.Any, 443,
+                        serverOptions.Listen(IPAddress.Any, 5001,
                             listenOptions =>
                             {
                                 listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
